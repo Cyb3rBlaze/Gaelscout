@@ -11,7 +11,7 @@ export default class Home extends Component {
 						<View style={{alignItems:'center', width:scale(375, 0), marginLeft:-scale(35, 0)}}>
 							<Image
 								source={require("../assets/logo.png")}
-                style={{width: 100, height:100}}
+                style={{width: scale(100, 1), height: scale(100, 1)}}
 							/>
 						</View>
 						<Text style={styles.title}>
@@ -45,7 +45,7 @@ export default class Home extends Component {
 const styles = StyleSheet.create({
   matter: {
     padding: 40,
-		marginTop: scale(40, 1)
+		marginTop: scale(20, 1)
   },
   text: {
 		marginTop: scale(20, 1),

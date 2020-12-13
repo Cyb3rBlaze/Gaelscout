@@ -5,6 +5,7 @@ const parentHeight = 667;
 const parentWidth =  375;
 
 import scale from '../../utils/scale';
+import {LinearGradient} from "expo-linear-gradient"
 
 export default class Display extends Component {
 	state = {
@@ -63,14 +64,19 @@ export default class Display extends Component {
 
 		return (
 			<View style={styles.container}>
-				<TouchableOpacity
-				onPress={() => {
+				<TouchableOpacity onPress={() => {
 						this.props.navigation.navigate('Choose');
-					}} style={[styles.button]}>
-						<Text>
-								Back
-						</Text>
-				</TouchableOpacity>
+					}}>
+              <LinearGradient
+              colors={["#6420c9", "#9f34eb"]}
+              style={styles.button}
+              start={[0.0, 0.5]} 
+              end={[1.0, 0.5]} 
+              locations={[0.0, 1.0]}>
+                <Text style={[styles.logText, { color: "#efefef" }]}>Back</Text>
+              </LinearGradient>
+              </TouchableOpacity>
+
 				<Text style={styles.title}>Winning Percentages</Text>
 				<Animated.View style={[styles.blueView, {...this.props.style, height:blueAnim}]}>
 					<Text style={styles.text}>{blue1}</Text>
@@ -165,14 +171,18 @@ const styles = StyleSheet.create({
 		paddingBottom: scale(10, 1)
 	},
 	button: {
-	marginLeft:scale(-230, 0),
-	marginRight: 10,
-	borderWidth: 1,
-	padding: 15,
-			borderColor: "#474747",
-			width: 65,
-			marginTop: -scale(40, 1),
+		marginLeft:scale(-160, 0),
+		marginRight: scale(10, 0),
+		padding: scale(15, 1),
+		paddingLeft: scale(20, 0),
+		paddingRight: scale(20, 0),
+		borderRadius: 10,
+		marginTop: -scale(40, 1),
+		width: "50%",
 	},
+	logText: {
+		fontSize: scale(14, 0)
+	  },
 });
 
 function getOutput(input
